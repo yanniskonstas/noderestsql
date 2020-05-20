@@ -6,7 +6,7 @@ function listAllEmployees(req, res) {
         if (regex.test(orderBy)) {
             const [ column, order ] = orderBy.split(':');
             knex
-                .select('name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
+                .select('id', 'name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
                 .from('employees')
                 .orderBy(column, order)
                 .then(data => res.status(200).json(data))
@@ -16,7 +16,7 @@ function listAllEmployees(req, res) {
         }
     } else {
         knex
-            .select('name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
+            .select('id', 'name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
             .from('employees')
             .then(data => res.status(200).json(data))
             .catch(error => res.status(500).json(error));
@@ -27,7 +27,7 @@ function listOneEmployee(req, res) {
     const { knex }  = req.app.locals;
     const { id } = req.params;
     knex
-        .select('name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
+        .select('id', 'name', 'address', 'email', 'hired', 'dob', 'salary', 'bonus', 'photo', 'department')
         .from('employees')
         .where({ id: `${id}` })
         .then(data => { 

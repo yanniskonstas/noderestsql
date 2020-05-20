@@ -3,7 +3,7 @@ const database = {
     host: 'localhost',
     post: 3306,
     user: 'root',
-    password: '',
+    password: '74787478',
     database: 'project'
 };
 
